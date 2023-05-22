@@ -1,12 +1,6 @@
 package main
 
-import (
-	"fmt"
-	"k8s/pkg/controller/replicaset"
-	"k8s/utils"
-	"os"
-	"time"
-)
+import "k8s/pkg/DNS"
 
 //func init() {
 //	logFile, err := os.OpenFile("log/"+time.Now().Format("15_04_05")+".log", os.O_CREATE|os.O_WRONLY|os.O_APPEND, 0644)
@@ -20,6 +14,8 @@ import (
 
 func main() {
 
+	DNS.CreateDns("pkg/DNS/dnsConfigTest.yaml")
+
 	//etcd.EtcdTest()
 	//apiserver.StartServer()
 	//kubectl.CmdExec()
@@ -27,30 +23,30 @@ func main() {
 	//log.Println("test Log!")
 
 	//解析replicaset.yaml
-	dataBytes, err := os.ReadFile("../pkg/replicaset/ReplicasetConfigTest.yml")
-
-	fmt.Println("hello world")
-	fmt.Println("test pr!")
-	service.ServiceConfigTest()
-	// 解析pod的yaml配置文件
-	dataBytes, err := os.ReadFile("D:\\Homework\\K8s\\repository\\k8s\\pkg\\pod\\podConfigTest.yaml")
-
-	if err != nil {
-		fmt.Println("读取文件失败：", err)
-		return
-	}
-	var replicasetData replicaset.ReplicaSet
-	err2 := yaml.Unmarshal(dataBytes, &replicasetData)
-	if err2 != nil {
-		fmt.Println("解析 yaml 文件失败：", err)
-	}
-	utils.OutputJson("replicaset", replicasetData)
-
-	ticker := time.NewTicker(3 * time.Second)
-	for range ticker.C {
-		fmt.Print("每隔3秒执行任务")
-	}
-	ticker.Stop()
+	//dataBytes, err := os.ReadFile("../pkg/replicaset/ReplicasetConfigTest.yml")
+	//
+	//fmt.Println("hello world")
+	//fmt.Println("test pr!")
+	//service.ServiceConfigTest()
+	//// 解析pod的yaml配置文件
+	//dataBytes, err = os.ReadFile("D:\\Homework\\K8s\\repository\\k8s\\pkg\\pod\\podConfigTest.yaml")
+	//
+	//if err != nil {
+	//	fmt.Println("读取文件失败：", err)
+	//	return
+	//}
+	//var replicasetData replicaset.ReplicaSet
+	//err2 := yaml.Unmarshal(dataBytes, &replicasetData)
+	//if err2 != nil {
+	//	fmt.Println("解析 yaml 文件失败：", err)
+	//}
+	//utils.OutputJson("replicaset", replicasetData)
+	//
+	//ticker := time.NewTicker(3 * time.Second)
+	//for range ticker.C {
+	//	fmt.Print("每隔3秒执行任务")
+	//}
+	//ticker.Stop()
 
 	//fmt.Println(replicasetData)
 

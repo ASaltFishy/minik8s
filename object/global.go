@@ -11,7 +11,6 @@ const (
 	PENDING Status = 2
 )
 
-<<<<<<< HEAD
 type Metadata struct {
 	Name   string `yaml:"name"`
 	Labels Labels `yaml:"labels"`
@@ -24,7 +23,8 @@ type Metadata struct {
 type Labels struct {
 	App string `yaml:"app"`
 	Env string `yaml:"env"`
-=======
+}
+
 const (
 	CREATE EventType = 0
 	UPDATE EventType = 1
@@ -34,5 +34,4 @@ const (
 type MQMessage struct {
 	EventType EventType
 	Value     string
->>>>>>> fcdca8038c800a8c1d95a2db516d70aff93a02b9
 }
